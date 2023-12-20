@@ -1,9 +1,9 @@
 INSERT INTO denodo_shop.buys (id, user_id, date_purchase, hour_purchase, total_amount)
-SELECT 101, 104, '2023-11-22'::date, '10:36'::time, 78
+SELECT 201, 104, '2023-11-22'::date, '10:36'::time, 78
 WHERE NOT EXISTS (
     SELECT 1
     FROM denodo_shop.buys
-    WHERE id = 101
+    WHERE id = 201
 );
 
 INSERT INTO denodo_shop.buys (id, user_id, date_purchase, hour_purchase, total_amount)

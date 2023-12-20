@@ -16,7 +16,7 @@ public class Buy {
     private Long id;
 
     // TODO: Mirar si lo ponemos a NO LAZY
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
     @Temporal(TemporalType.DATE)
@@ -83,14 +83,4 @@ public class Buy {
         return Objects.hash(id, user, dateOfPurchase, hourOfPurchase, totalAmount);
     }
 
-    @Override
-    public String toString() {
-        return "Buy{" +
-                "id=" + id +
-                ", user=" + user +
-                ", dateOfPurchase=" + dateOfPurchase +
-                ", hourOfPurchase=" + hourOfPurchase +
-                ", totalAmount=" + totalAmount +
-                '}';
-    }
 }

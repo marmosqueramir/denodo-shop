@@ -1,8 +1,10 @@
 package com.denodo.challenge.service.buys;
 
 import com.denodo.challenge.dao.buys.BuyDao;
+import com.denodo.challenge.dto.BuyDetailsDTO;
 import com.denodo.challenge.entity.buys.Buy;
 import com.denodo.challenge.service.buys.interfaces.BuyService;
+import com.denodo.challenge.service.mapers.buy.BuyMapper;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,5 +26,11 @@ public class BuyServiceImpl implements BuyService {
 
         buyDao.findAll();
         return 3;
+    }
+
+    @Override
+    public BuyDetailsDTO getBuyDetails(Long purchaseId) {
+        Buy buy = buyDao.getById(purchaseId);
+        return BuyMapper.buyToBuyDetailsDTO(buy);
     }
 }
