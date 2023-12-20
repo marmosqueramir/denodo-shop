@@ -1,4 +1,4 @@
-package com.denodo.challenge.entity.buys;
+package com.denodo.challenge.entity.purchases;
 
 import com.denodo.challenge.entity.users.User;
 import com.denodo.challenge.entity.util.SchemaVariables;
@@ -8,8 +8,8 @@ import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "buys", schema = SchemaVariables.SCHEMA_APP)
-public class Buy {
+@Table(name = "purchases", schema = SchemaVariables.SCHEMA_APP)
+public class Purchase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,8 +74,10 @@ public class Buy {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Buy buy = (Buy) o;
-        return totalAmount == buy.totalAmount && Objects.equals(id, buy.id) && Objects.equals(user, buy.user) && Objects.equals(dateOfPurchase, buy.dateOfPurchase) && Objects.equals(hourOfPurchase, buy.hourOfPurchase);
+        Purchase purchase = (Purchase) o;
+        return totalAmount == purchase.totalAmount && Objects.equals(id, purchase.id)
+                && Objects.equals(user, purchase.user) && Objects.equals(dateOfPurchase, purchase.dateOfPurchase)
+                && Objects.equals(hourOfPurchase, purchase.hourOfPurchase);
     }
 
     @Override

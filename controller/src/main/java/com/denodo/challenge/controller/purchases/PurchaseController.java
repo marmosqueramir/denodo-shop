@@ -1,7 +1,7 @@
-package com.denodo.challenge.controller.buys;
+package com.denodo.challenge.controller.purchases;
 
-import com.denodo.challenge.dto.BuyDetailsDTO;
-import com.denodo.challenge.service.buys.interfaces.BuyService;
+import com.denodo.challenge.dto.PurchaseDetailsDTO;
+import com.denodo.challenge.service.purchases.interfaces.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,13 +12,13 @@ import java.util.Date;
 
 @RestController
 @RequestMapping("/purchases")
-public class BuyController {
+public class PurchaseController {
 
-    private BuyService buyService;
+    private PurchaseService purchaseService;
 
     @Autowired
-    public BuyController(BuyService buyService) {
-        this.buyService = buyService;
+    public PurchaseController(PurchaseService purchaseService) {
+        this.purchaseService = purchaseService;
     }
 
     @GetMapping("/ageRangeByRangeTime")
@@ -28,16 +28,16 @@ public class BuyController {
         } catch(Exception e) {
 
         }
-        return buyService.getFrequentAgeInRangeTime(new Date(), new Date());
+        return purchaseService.getFrequentAgeInRangeTime(new Date(), new Date());
     }
 
     @GetMapping("/details")
-    public BuyDetailsDTO purchaseDetailsById(@RequestParam Long purchaseId) {
+    public PurchaseDetailsDTO purchaseDetailsById(@RequestParam Long purchaseId) {
         try {
-            return buyService.getBuyDetails(purchaseId);
+            return purchaseService.getPurchaseDetails(purchaseId);
         } catch(Exception e) {
 
         }
-        return new BuyDetailsDTO();
+        return new PurchaseDetailsDTO();
     }
 }
