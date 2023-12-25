@@ -4,6 +4,8 @@ import com.denodo.challenge.entity.users.User;
 import com.denodo.challenge.entity.util.SchemaVariables;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Objects;
 
@@ -21,11 +23,11 @@ public class Purchase {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "date_purchase")
-    private Date dateOfPurchase;
+    private LocalDate dateOfPurchase;
 
     @Temporal(TemporalType.TIME)
     @Column(name = "hour_purchase")
-    private Date hourOfPurchase;
+    private LocalTime hourOfPurchase;
 
     @Column(name = "total_amount")
     private long totalAmount;
@@ -46,19 +48,19 @@ public class Purchase {
         this.user = user;
     }
 
-    public Date getDateOfPurchase() {
+    public LocalDate getDateOfPurchase() {
         return dateOfPurchase;
     }
 
-    public void setDateOfPurchase(Date dateOfPurchase) {
+    public void setDateOfPurchase(LocalDate dateOfPurchase) {
         this.dateOfPurchase = dateOfPurchase;
     }
 
-    public Date getHourOfPurchase() {
+    public LocalTime getHourOfPurchase() {
         return hourOfPurchase;
     }
 
-    public void setHourOfPurchase(Date hourOfPurchase) {
+    public void setHourOfPurchase(LocalTime hourOfPurchase) {
         this.hourOfPurchase = hourOfPurchase;
     }
 

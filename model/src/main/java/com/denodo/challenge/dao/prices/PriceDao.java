@@ -1,7 +1,7 @@
 package com.denodo.challenge.dao.prices;
 
 import com.denodo.challenge.entity.prices.Price;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.denodo.challenge.jpa.GenericEntityDao;
 
-public interface PriceDao extends JpaRepository<Price, Long> {
+public interface PriceDao extends GenericEntityDao<Price, Long> {
 }
