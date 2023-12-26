@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS denodo_shop.users (
    CONSTRAINT users_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE denodo_shop.purchases (
+CREATE TABLE IF NOT EXISTS denodo_shop.purchases (
    id bigserial NOT NULL,
    date_purchase timestamp(6) NULL,
    total_amount int8 NULL,
