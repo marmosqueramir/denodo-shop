@@ -1,21 +1,24 @@
 package com.denodo.challenge.util.exceptions.handlers;
 
-import com.denodo.challenge.util.exceptions.ResponseEntityHandler;
+import com.denodo.challenge.util.exceptions.ErrorResponseDTO;
+import com.denodo.challenge.util.exceptions.ResponseEntityConstructor;
 import com.denodo.challenge.util.exceptions.ServiceException;
 import org.jboss.logging.Logger;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.ExceptionMapper;
-import javax.ws.rs.ext.Provider;
-
-@Provider
-public class ServiceExceptionHandler implements ExceptionMapper<ServiceException> {
+@ControllerAdvice
+@Order(Ordered.HIGHEST_PRECEDENCE)
+public class ServiceExceptionHandler {
 
     private static final Logger log = Logger.getLogger(ServiceExceptionHandler.class);
 
-    @Override
-    public Response toResponse(ServiceException e) {
+    @ExceptionHandler(ServiceException.class)
+    public ResponseEntity<ErrorResponseDTO> handleServiceException(ServiceException e) {
         log.error(e);
-        return ResponseEntityHandler.getErrorResponse(e, 0, e.getMessage());
+        return ResponseEntityConstructor.getErrorResponse(e, e.getMessage());
     }
 }

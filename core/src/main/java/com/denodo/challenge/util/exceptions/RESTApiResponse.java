@@ -1,6 +1,5 @@
 package com.denodo.challenge.util.exceptions;
 
-
 import org.json.simple.JSONObject;
 
 public class RESTApiResponse {
@@ -14,7 +13,7 @@ public class RESTApiResponse {
 
     public static JSONObject getErrorResponse(ErrorResponseDTO error) {
         var response = new JSONObject();
-        response.put("error", error.getErrorCode());
+        response.put("error", error.getStatus().value());
         response.put("message", error.getMessage());
         return response;
     }

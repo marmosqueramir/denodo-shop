@@ -1,23 +1,26 @@
 package com.denodo.challenge.util.exceptions.handlers;
 
 import com.denodo.challenge.util.exceptions.ErrorResponseDTO;
-import com.denodo.challenge.util.exceptions.ResponseEntityHandler;
+import com.denodo.challenge.util.exceptions.ResponseEntityConstructor;
 import org.jboss.logging.Logger;
+import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.ExceptionMapper;
-import javax.ws.rs.ext.Provider;
-
-@Provider
-public class IllegalArgumentExceptionHandler implements ExceptionMapper<IllegalArgumentException> {
+@ControllerAdvice
+@Order(Ordered.HIGHEST_PRECEDENCE)
+public class IllegalArgumentExceptionHandler {
 
     private static final Logger log = Logger.getLogger(IllegalArgumentExceptionHandler.class);
 
-    @Override
-    public Response toResponse(IllegalArgumentException e) {
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponseDTO> handleIllegalArgumentException(IllegalArgumentException e) {
         log.error(e);
-        ErrorResponseDTO error = new ErrorResponseDTO(Response.Status.BAD_REQUEST, 0, e.getMessage());
-        return ResponseEntityHandler.getErrorResponse(error);
+        ErrorResponseDTO error = new ErrorResponseDTO(HttpStatus.BAD_REQUEST, e.getMessage());
+        return ResponseEntityConstructor.getErrorResponse(error);
     }
 
 }

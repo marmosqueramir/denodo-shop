@@ -1,19 +1,17 @@
 package com.denodo.challenge.util.exceptions;
 
+import com.denodo.challenge.util.exceptions.ErrorResponseDTO;
+import com.denodo.challenge.util.exceptions.ServiceException;
 import org.springframework.http.HttpStatus;
-
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.Provider;
 import org.springframework.http.ResponseEntity;
 
-@Provider
-public class ResponseEntityHandler {
+public class ResponseEntityConstructor {
 
-    private ResponseEntityHandler() {
+    private ResponseEntityConstructor() {
         // Empty constructor
     }
 
-    public static ResponseEntity<ErrorResponseDTO> getErrorResponse(ServiceException e, int errorCode, String message) {
+    public static ResponseEntity<ErrorResponseDTO> getErrorResponse(ServiceException e, String message) {
         String exceptionName =
                 e.getInnerExcept() != null ? e.getInnerExcept().getClass().getSimpleName() : "";
         HttpStatus status;
@@ -31,11 +29,11 @@ public class ResponseEntityHandler {
                 status = HttpStatus.INTERNAL_SERVER_ERROR;
                 break;
         }
-        return getErrorResponse(new ErrorResponseDTO(errorCode, message));
+        return getErrorResponse(new ErrorResponseDTO(status, message));
     }
 
     public static ResponseEntity<ErrorResponseDTO> getErrorResponse(ErrorResponseDTO error) {
-        return new ResponseEntity<>(error, HttpStatus.valueOf(error.getErrorCode()));
+        return new ResponseEntity<>(error, error.getStatus());
     }
 
     public static ResponseEntity<Object> getOkMessage(Object object, HttpStatus status) {

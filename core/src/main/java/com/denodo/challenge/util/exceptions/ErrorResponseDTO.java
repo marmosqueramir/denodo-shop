@@ -1,24 +1,23 @@
 package com.denodo.challenge.util.exceptions;
 
-import javax.ws.rs.core.Response;
+import org.springframework.http.HttpStatus;
 
 public class ErrorResponseDTO {
 
-    private int errorCode;
+    private HttpStatus status;
     private String message;
 
-    public ErrorResponseDTO(Response.Status status, int errorCode, String message) {
-        this.errorCode = errorCode;
+    public ErrorResponseDTO(HttpStatus status, String message) {
+        this.status = status;
         this.message = message;
     }
 
-
-    public int getErrorCode() {
-        return errorCode;
+    public HttpStatus getStatus() {
+        return status;
     }
 
-    public void setErrorCode(int errorCode) {
-        this.errorCode = errorCode;
+    public void setStatus(HttpStatus status) {
+        this.status = status;
     }
 
     public String getMessage() {
