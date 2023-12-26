@@ -1,7 +1,7 @@
 package com.denodo.challenge.dao.users;
 
 import com.denodo.challenge.entity.users.User;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.denodo.challenge.jpa.GenericEntityDao;
 
-public interface UserDao extends JpaRepository<User, Long> {
+public interface UserDao extends GenericEntityDao<User, Long> {
 }
