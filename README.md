@@ -1,21 +1,44 @@
-# Getting Started
+# Documencatión
 
-### Reference Documentation
+Se han cambiado las columnas fecha y hora, unificándolas. Esto es debido a que daban 
+problemas a la hora de hacer los filtrados por hora y fecha  a la vez. 
+De esta forma se simplifica. Después si queremos mostrarlo por separado pordría hacerse.
 
-For further reference, please consider the following sections:
+## Arrancar el proyecto
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.0/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.0/maven-plugin/reference/html/#build-image)
-* [Spring Data JPA](https://docs.spring.io/spring-boot/docs/3.2.0/reference/htmlsingle/index.html#data.sql.jpa-and-spring-data)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.2.0/reference/htmlsingle/index.html#web)
+Debemos tener instalado Docker. Por ejemplo Docker Desktop: *https://docs.docker.com/desktop/*
 
-### Guides
+### Configuración de la Base de Datos PostgreSQL
+A continuación primero debemos crear una base de datos postgreSQL.
+Para ello se ha creado un ***docker-compose.yaml***. Este archivo
+se encuentra en */denodo-shop/docker/postgreSQL*. Para arrancarlo seguiremos
+los siguientes comandos:
 
-The following guides illustrate how to use some features concretely:
+```docker-compose up -d```
 
-* [Accessing Data with JPA](https://spring.io/guides/gs/accessing-data-jpa/)
-* [Building a RESTful Web Service](https://spring.io/guides/gs/rest-service/)
-* [Serving Web Content with Spring MVC](https://spring.io/guides/gs/serving-web-content/)
-* [Building REST services with Spring](https://spring.io/guides/tutorials/rest/)
+Con la opción *-d* hacemos que se ejecute en segundo plano. Par ano bloquear la terminal.
+Cuando tenemos el contenedor Docker corriendo tendremos dos servicios:
+
+- pgAdmin4: para la gestión de la base de datos. Así no tenemos que descargar ningún cliente. 
+- PostgreSQL: una base de datos relacional postgreSQL.
+
+Vamos a crear un servidor para poder crear nuestra base de datos. Para esto accedemos
+a pgAdmin4. En nuestro navegador accedemos a ```localhost:5050/browser/``` y nos loggeamos:
+- User/Password: admin@example.com/admin
+
+Ahora vamos a crear el servidor siguiendo los pasos de las siguientes imágenes.
+![paso1.png](docker%2FpostgreSQL%2Fimages%2Fpaso1.png)
+![paso2.png](docker%2FpostgreSQL%2Fimages%2Fpaso2.png)
+![paso3.png](docker%2FpostgreSQL%2Fimages%2Fpaso3.png)
+- password: postgres
+
+Y lo salvamos.  
+
+Ahora vamos a crear la base de datos. Sigue las siguientes instrucciones:
+![paso4.png](docker%2FpostgreSQL%2Fimages%2Fpaso4.png)
+![paso5.png](docker%2FpostgreSQL%2Fimages%2Fpaso5.png)
+
+Salvamos y ya tenemos la base de datos configurada.
+
+### Arrancar la aplicación
 
