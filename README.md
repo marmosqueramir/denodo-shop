@@ -41,4 +41,15 @@ Ahora vamos a crear la base de datos. Sigue las siguientes instrucciones:
 Salvamos y ya tenemos la base de datos configurada.
 
 ### Arrancar la aplicación
+Tener instalado Maven y el JDK17.  
 
+Descarga la aplicación de github y lanza los siguientes comandos.
+```mvn clean install```
+```mvnw spring-boot:run```
+Si tienes el IDE IntelliJ. Puedes no tener seteado en tus variables de entorno
+el JDK17. Y así es más sencillo. Simplemente después de hacer el install,
+creas una confguración.
+![paso5.png](docker%2FpostgreSQL%2Fimages%2Fpaso5.png)
+
+Una vez arranca la aplicación puedes probarla con Postman. O acceder a la url:
+http://localhost:8080/swagger-ui/index.html y probarla.
