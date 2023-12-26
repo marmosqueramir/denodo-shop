@@ -1,7 +1,0 @@
-com\denodo\challenge\entity\users\User.class
-com\denodo\challenge\dao\users\UserDao.class
-com\denodo\challenge\entity\util\SchemaVariables.class
-com\denodo\challenge\dao\buys\BuyDao.class
-com\denodo\challenge\dao\prices\PriceDao.class
-com\denodo\challenge\entity\buys\Buy.class
-com\denodo\challenge\entity\prices\Price.class
