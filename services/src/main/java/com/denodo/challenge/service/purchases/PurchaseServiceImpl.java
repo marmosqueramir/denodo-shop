@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.Date;
@@ -22,12 +23,11 @@ public class PurchaseServiceImpl implements PurchaseService {
     }
 
     @Override
-    public List<PurchasesForMostRepeatedAgeByDateDTO> totalPurchasesForMostRepeatedAgeByDate(Date initDateTime,
-            Date endDateTime) throws Exception {
+    public List<PurchasesForMostRepeatedAgeByDateDTO> totalPurchasesForMostRepeatedAgeByDate(LocalDateTime initDateTime,
+            LocalDateTime endDateTime) throws Exception {
         if (initDateTime != null && endDateTime != null) {
             if (isDateBefore(initDateTime, endDateTime)) {
-                return purchaseDao.totalPurchasesForMostRepeatedAgeByDate(convertToLocalDate(initDateTime),
-                        convertToLocalDate(endDateTime), convertToLocalTime(initDateTime), convertToLocalTime(endDateTime));
+                return purchaseDao.totalPurchasesForMostRepeatedAgeByDate(initDateTime, endDateTime);
             } else {
                 throw new Exception("El rango de fechas no es válido. La fecha de inicio es posterior a la fecha de fin.");
             }
@@ -36,15 +36,7 @@ public class PurchaseServiceImpl implements PurchaseService {
         }
     }
 
-    public static LocalTime convertToLocalTime(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalTime();
-    }
-
-    public static LocalDate convertToLocalDate(Date date) {
-        return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-    }
-
-    private boolean isDateBefore(Date initDateTime, Date endDateTime) {
-        return initDateTime.before(endDateTime);
+    private boolean isDateBefore(LocalDateTime initDateTime, LocalDateTime endDateTime) {
+        return initDateTime.isBefore(endDateTime);
     }
 }

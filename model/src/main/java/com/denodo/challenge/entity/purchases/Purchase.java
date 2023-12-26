@@ -5,6 +5,7 @@ import com.denodo.challenge.entity.util.SchemaVariables;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -20,13 +21,13 @@ public class Purchase {
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_purchase")
-    private LocalDate dateOfPurchase;
+    private LocalDateTime dateOfPurchase;
 
-    @Temporal(TemporalType.TIME)
+/*    @Temporal(TemporalType.TIME)
     @Column(name = "hour_purchase")
-    private LocalTime hourOfPurchase;
+    private LocalTime hourOfPurchase;*/
 
     @Column(name = "total_amount")
     private long totalAmount;
@@ -47,20 +48,12 @@ public class Purchase {
         this.user = user;
     }
 
-    public LocalDate getDateOfPurchase() {
+    public LocalDateTime getDateOfPurchase() {
         return dateOfPurchase;
     }
 
-    public void setDateOfPurchase(LocalDate dateOfPurchase) {
+    public void setDateOfPurchase(LocalDateTime dateOfPurchase) {
         this.dateOfPurchase = dateOfPurchase;
-    }
-
-    public LocalTime getHourOfPurchase() {
-        return hourOfPurchase;
-    }
-
-    public void setHourOfPurchase(LocalTime hourOfPurchase) {
-        this.hourOfPurchase = hourOfPurchase;
     }
 
     public long getTotalAmount() {
@@ -76,14 +69,11 @@ public class Purchase {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Purchase purchase = (Purchase) o;
-        return totalAmount == purchase.totalAmount && Objects.equals(id, purchase.id)
-                && Objects.equals(user, purchase.user) && Objects.equals(dateOfPurchase, purchase.dateOfPurchase)
-                && Objects.equals(hourOfPurchase, purchase.hourOfPurchase);
+        return totalAmount == purchase.totalAmount && Objects.equals(id, purchase.id) && Objects.equals(user, purchase.user) && Objects.equals(dateOfPurchase, purchase.dateOfPurchase);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, dateOfPurchase, hourOfPurchase, totalAmount);
+        return Objects.hash(id, user, dateOfPurchase, totalAmount);
     }
-
 }

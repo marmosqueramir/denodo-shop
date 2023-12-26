@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -39,8 +40,8 @@ public class PurchaseController {
     })
     @GetMapping("/totalPurchasesForMostRepeatedAgeByDate")
     public ResponseEntity<List<PurchasesForMostRepeatedAgeByDateDTO>> totalPurchasesForMostRepeatedAgeByDate(
-            @RequestParam @NotNull @DateTimeFormat(pattern = DATE_FORMAT) Date initDateTime,
-            @RequestParam @NotNull @DateTimeFormat(pattern = DATE_FORMAT) Date endDateTime) {
+            @RequestParam @NotNull @DateTimeFormat(pattern = DATE_FORMAT) LocalDateTime initDateTime,
+            @RequestParam @NotNull @DateTimeFormat(pattern = DATE_FORMAT) LocalDateTime endDateTime) {
         try {
             List<PurchasesForMostRepeatedAgeByDateDTO> result =
                     purchaseService.totalPurchasesForMostRepeatedAgeByDate(initDateTime, endDateTime);
