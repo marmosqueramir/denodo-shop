@@ -1,4 +1,4 @@
-package com.denodo.challenge.exceptions;
+package com.denodo.challenge.util.exceptions;
 
 import org.hibernate.service.spi.ServiceException;
 import org.jboss.logging.Logger;

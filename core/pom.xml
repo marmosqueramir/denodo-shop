@@ -9,10 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>model</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <groupId>com.denodo.challenge</groupId>
-    <packaging>jar</packaging>
+    <artifactId>core</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -22,21 +19,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.6.0</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>8.0.0.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.denodo.challenge</groupId>
-            <artifactId>core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <version>3.4.3.Final</version>
         </dependency>
     </dependencies>
 </project>

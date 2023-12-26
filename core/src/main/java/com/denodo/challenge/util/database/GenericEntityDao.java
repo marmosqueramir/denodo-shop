@@ -1,7 +1,6 @@
-package com.denodo.challenge.jpa;
+package com.denodo.challenge.util.database;
 
-
-import com.denodo.challenge.exceptions.ModelException;
+import com.denodo.challenge.util.exceptions.ModelException;
 
 import javax.management.InstanceNotFoundException;
 import java.io.Serializable;

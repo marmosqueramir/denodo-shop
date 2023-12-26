@@ -1,4 +1,4 @@
-package com.denodo.challenge.entity.util;
+package com.denodo.challenge.util.database;
 
 public class SchemaVariables {
     private SchemaVariables() {

@@ -1,12 +1,10 @@
 package com.denodo.challenge.entity.purchases;
 
 import com.denodo.challenge.entity.users.User;
-import com.denodo.challenge.entity.util.SchemaVariables;
+import com.denodo.challenge.util.database.SchemaVariables;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Objects;
 
 @Entity
