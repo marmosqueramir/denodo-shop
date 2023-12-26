@@ -11,7 +11,7 @@ Debemos tener instalado Docker. Por ejemplo Docker Desktop: *https://docs.docker
 ### Configuración de la Base de Datos PostgreSQL
 A continuación primero debemos crear una base de datos postgreSQL.
 Para ello se ha creado un ***docker-compose.yaml***. Este archivo
-se encuentra en */denodo-shop/docker/postgreSQL*. Para arrancarlo seguiremos
+se encuentra en */denodo-shop/documentation/docker/postgreSQL*. Para arrancarlo seguiremos
 los siguientes comandos:
 
 ```docker-compose up -d```
@@ -27,16 +27,16 @@ a pgAdmin4. En nuestro navegador accedemos a ```localhost:5050/browser/``` y nos
 - User/Password: admin@example.com/admin
 
 Ahora vamos a crear el servidor siguiendo los pasos de las siguientes imágenes.
-![paso1.png](docker%2FpostgreSQL%2Fimages%2Fpaso1.png)
-![paso2.png](docker%2FpostgreSQL%2Fimages%2Fpaso2.png)
-![paso3.png](docker%2FpostgreSQL%2Fimages%2Fpaso3.png)
+![paso1.png](documentation%2Fimages%2Fpaso1.png)
+![paso2.png](documentation%2Fimages%2Fpaso2.png
+![paso3.png](documentation%2Fimages%2Fpaso3.png)
 - password: postgres
 
 Y lo salvamos.  
 
 Ahora vamos a crear la base de datos. Sigue las siguientes instrucciones:
-![paso4.png](docker%2FpostgreSQL%2Fimages%2Fpaso4.png)
-![paso5.png](docker%2FpostgreSQL%2Fimages%2Fpaso5.png)
+![paso4.png](documentation%2Fimages%2Fpaso4.png)
+![paso5.png](documentation%2Fimages%2Fpaso5.png)
 
 Salvamos y ya tenemos la base de datos configurada.
 
@@ -49,7 +49,7 @@ Descarga la aplicación de github y lanza los siguientes comandos.
 Si tienes el IDE IntelliJ. Puedes no tener seteado en tus variables de entorno
 el JDK17. Y así es más sencillo. Simplemente después de hacer el install,
 creas una confguración.
-![paso5.png](docker%2FpostgreSQL%2Fimages%2Fpaso5.png)
+![runApp.png](documentation%2Fimages%2FrunApp.png)
 
 Una vez arranca la aplicación puedes probarla con Postman. O acceder a la url:
 http://localhost:8080/swagger-ui/index.html y probarla.
