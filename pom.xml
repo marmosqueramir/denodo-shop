@@ -18,6 +18,7 @@
         <module>model</module>
         <module>controller</module>
         <module>services</module>
+        <module>core</module>
     </modules>
     <properties>
         <java.version>17</java.version>

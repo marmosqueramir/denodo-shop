@@ -1,4 +1,4 @@
-package com.denodo.challenge.exceptions;
+package com.denodo.challenge.util.exceptions;
 
 public class ModelException extends Exception {
 

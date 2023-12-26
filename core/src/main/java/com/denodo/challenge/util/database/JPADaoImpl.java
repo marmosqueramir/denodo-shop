@@ -1,7 +1,7 @@
-package com.denodo.challenge.jpa;
+package com.denodo.challenge.util.database;
 
-import com.denodo.challenge.exceptions.ModelException;
-import com.denodo.challenge.exceptions.UtilExceptionMethods;
+import com.denodo.challenge.util.exceptions.ModelException;
+import com.denodo.challenge.util.exceptions.UtilExceptionMethods;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.PersistenceException;

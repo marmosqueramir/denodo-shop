@@ -1,7 +1,7 @@
 package com.denodo.challenge.entity.users;
 
-import com.denodo.challenge.entity.util.SchemaVariables;
 import com.denodo.challenge.entity.purchases.Purchase;
+import com.denodo.challenge.util.database.SchemaVariables;
 import jakarta.persistence.*;
 
 import java.util.List;

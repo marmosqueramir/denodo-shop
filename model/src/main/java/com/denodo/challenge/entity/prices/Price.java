@@ -1,6 +1,6 @@
 package com.denodo.challenge.entity.prices;
 
-import com.denodo.challenge.entity.util.SchemaVariables;
+import com.denodo.challenge.util.database.SchemaVariables;
 import jakarta.persistence.*;
 
 import java.util.Objects;
