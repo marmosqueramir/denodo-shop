@@ -24,7 +24,7 @@ public class PurchasesForMostRepeatedAgeByDateDTO {
         this.userId = userId;
     }
 
-    public Long getTotal_amount() {
+    public Long getTotalAmount() {
         return totalAmount;
     }
 

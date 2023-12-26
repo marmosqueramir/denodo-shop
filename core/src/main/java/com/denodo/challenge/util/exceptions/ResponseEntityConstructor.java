@@ -1,7 +1,5 @@
 package com.denodo.challenge.util.exceptions;
 
-import com.denodo.challenge.util.exceptions.ErrorResponseDTO;
-import com.denodo.challenge.util.exceptions.ServiceException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

@@ -15,17 +15,12 @@ public class Purchase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // TODO: Mirar si lo ponemos a NO LAZY
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_purchase")
     private LocalDateTime dateOfPurchase;
-
-/*    @Temporal(TemporalType.TIME)
-    @Column(name = "hour_purchase")
-    private LocalTime hourOfPurchase;*/
 
     @Column(name = "total_amount")
     private long totalAmount;

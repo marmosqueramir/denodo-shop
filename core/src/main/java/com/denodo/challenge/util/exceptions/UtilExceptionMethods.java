@@ -34,16 +34,16 @@ public class UtilExceptionMethods {
         return th;
     }
 
-    public static Throwable evaluateRecursiveErrorUntilClass(ModelException e, Class specificClass) {
+    public static <T extends Throwable> T evaluateRecursiveErrorUntilClass(ModelException e, Class<T> specificClass) {
         return evaluateRecursiveErrorUntilClass(e.getInnerException(), specificClass);
     }
 
-    public static Throwable evaluateRecursiveErrorUntilClass(ServiceException e, Class specificClass) {
+    public static <T extends Throwable> T evaluateRecursiveErrorUntilClass(ServiceException e, Class<T> specificClass) {
         return evaluateRecursiveErrorUntilClass(e, specificClass);
 
     }
 
-    public static Throwable evaluateRecursiveErrorUntilClass(Exception e, Class specificClass) {
+    public static <T extends Throwable> T evaluateRecursiveErrorUntilClass(Exception e, Class<T> specificClass) {
         Throwable th = e;
         if (specificClass != null) {
             for (int maxLevels = 10; maxLevels > 0; maxLevels--) {
@@ -53,6 +53,6 @@ public class UtilExceptionMethods {
                 }
             }
         }
-        return th;
+        return (T) th;
     }
 }
