@@ -4,28 +4,19 @@ import com.denodo.challenge.dao.purchases.interfaces.PurchaseDao;
 import com.denodo.challenge.dto.PurchasesForMostRepeatedAgeByDateDTO;
 import com.denodo.challenge.entity.purchases.Purchase;
 import com.denodo.challenge.jpa.JPADaoImpl;
-import jakarta.persistence.TemporalType;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Repository;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 import java.util.List;
 
 @Repository
 public class PurchaseDaoImpl extends JPADaoImpl<Purchase, Long> implements PurchaseDao {
     @Override
-    public List<PurchasesForMostRepeatedAgeByDateDTO> totalPurchasesForMostRepeatedAgeByDate(
-            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate initDate,
-            @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate,
-            @DateTimeFormat(pattern = "HH:mm:ss") LocalTime initHour,
-            @DateTimeFormat(pattern = "HH:mm:ss") LocalTime endHour) throws ParseException {
+    public List<PurchasesForMostRepeatedAgeByDateDTO> totalPurchasesForMostRepeatedAgeByDate(LocalDate initDate,
+            LocalDate endDate, LocalTime initHour, LocalTime endHour) {
 
-
-        return (List<PurchasesForMostRepeatedAgeByDateDTO>) getEntityManager().createNativeQuery("WITH EdadMasRepetida AS (\n" +
+        return getEntityManager().createNativeQuery("WITH EdadMasRepetida AS (\n" +
                 "    SELECT\n" +
                 "        u.id,\n" +
                 "        u.age,\n" +
@@ -42,7 +33,7 @@ public class PurchaseDaoImpl extends JPADaoImpl<Purchase, Long> implements Purch
                 ")\n" +
                 "SELECT\n" +
                 "    c.user_id as userId,\n" +
-                "    c.total_amount as total_amount,\n" +
+                "    c.total_amount as totalAmount,\n" +
                 "    e.age as age,\n" +
                 "    e.n_edad_repetida as numberOfAgeRepeats\n" +
                 "FROM\n" +

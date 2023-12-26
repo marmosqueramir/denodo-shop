@@ -4,14 +4,14 @@ public class PurchasesForMostRepeatedAgeByDateDTO {
 
     private Long userId;
 
-    private Long total_amount;
+    private Long totalAmount;
 
     private Integer age;
     private Long numberOfAgeRepeats;
 
-    public PurchasesForMostRepeatedAgeByDateDTO(Long userId, Long total_amount, Integer age, Long numberOfAgeRepeats) {
+    public PurchasesForMostRepeatedAgeByDateDTO(Long userId, Long totalAmount, Integer age, Long numberOfAgeRepeats) {
         this.userId = userId;
-        this.total_amount = total_amount;
+        this.totalAmount = totalAmount;
         this.age = age;
         this.numberOfAgeRepeats = numberOfAgeRepeats;
     }
@@ -25,11 +25,11 @@ public class PurchasesForMostRepeatedAgeByDateDTO {
     }
 
     public Long getTotal_amount() {
-        return total_amount;
+        return totalAmount;
     }
 
-    public void setTotal_amount(Long total_amount) {
-        this.total_amount = total_amount;
+    public void setTotalAmount(Long totalAmount) {
+        this.totalAmount = totalAmount;
     }
 
     public Integer getAge() {

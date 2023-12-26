@@ -35,6 +35,7 @@ public class ModelException extends Exception {
         this.subType = subType;
     }
 
+    @Override
     public String getMessage() {
         if (message == null) {
             return this.innerException.getMessage();
