@@ -32,8 +32,6 @@ public class PurchaseServiceImplTest {
     private PurchaseServiceImpl purchaseService;
     @Mock
     private PurchaseDao purchaseDao;
-    @Mock
-    private Logger log;
 
     private static LocalDateTime initDateTime;
     private static LocalDateTime endDateTime;
@@ -51,7 +49,7 @@ public class PurchaseServiceImplTest {
     }
 
     @Test
-    public void totalPurchasesForMostRepeatedAgeByDate_NullData() {
+    void totalPurchasesForMostRepeatedAgeByDate_NullData() {
         assertThrows(IllegalArgumentException.class, () -> {
             purchaseService.totalPurchasesForMostRepeatedAgeByDate(initDateTime, null);
         });
@@ -66,7 +64,7 @@ public class PurchaseServiceImplTest {
     }
 
     @Test
-    public void totalPurchasesForMostRepeatedAgeByDate_DateBeforeInvalid() {
+    void totalPurchasesForMostRepeatedAgeByDate_DateBeforeInvalid() {
         // Configuración de datos de prueba
         LocalDateTime badEndDateTime = LocalDateTime.now();
         LocalDateTime badInitDateTime = LocalDateTime.now().plusHours(1);
@@ -77,7 +75,7 @@ public class PurchaseServiceImplTest {
     }
 
     @Test
-    public void totalPurchasesForMostRepeatedAgeByDate_Ok() throws ServiceException {
+    void totalPurchasesForMostRepeatedAgeByDate_Ok() throws ServiceException {
         Type listType = new TypeToken<List<PurchasesForMostRepeatedAgeByDateDTO>>() {}.getType();
         String json = getPurchasesForMostRepeatedAgeByDateDTOListJson();
         List<PurchasesForMostRepeatedAgeByDateDTO> mockResult = JsonParserToObject.transformJsonToList(listType, json);
@@ -92,7 +90,7 @@ public class PurchaseServiceImplTest {
     }
 
     @Test
-    public void totalPurchasesForMostRepeatedAgeByDate_UnknowException() throws ServiceException {
+    void totalPurchasesForMostRepeatedAgeByDate_UnknowException() throws ServiceException {
         // Configuración de datos de prueba
 
         when(purchaseDao.totalPurchasesForMostRepeatedAgeByDate(initDateTime, endDateTime))

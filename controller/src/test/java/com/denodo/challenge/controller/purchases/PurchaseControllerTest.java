@@ -44,7 +44,7 @@ public class PurchaseControllerTest {
     }
 
     @Test
-    public void testTotalPurchasesForMostRepeatedAgeByDate_Ok() throws ServiceException {
+    void testTotalPurchasesForMostRepeatedAgeByDate_Ok() throws ServiceException {
         // Configuración del servicio mock
         Type listType = new TypeToken<List<PurchasesForMostRepeatedAgeByDateDTO>>() {}.getType();
         String json = getPurchasesForMostRepeatedAgeByDateDTOListJson();
@@ -60,7 +60,7 @@ public class PurchaseControllerTest {
     }
 
     @Test
-    public void testTotalPurchasesForMostRepeatedAgeByDate_NullData() throws ServiceException {
+    void testTotalPurchasesForMostRepeatedAgeByDate_NullData() throws ServiceException {
         when(purchaseService
                 .totalPurchasesForMostRepeatedAgeByDate(initDateTime, null)).thenThrow(IllegalArgumentException.class);
         when(purchaseService
@@ -83,7 +83,7 @@ public class PurchaseControllerTest {
     }
 
     @Test
-    public void testTotalPurchasesForMostRepeatedAgeByDate_ServiceException() throws ServiceException {
+    void testTotalPurchasesForMostRepeatedAgeByDate_ServiceException() throws ServiceException {
         when(purchaseService
                 .totalPurchasesForMostRepeatedAgeByDate(initDateTime, endDateTime)).thenThrow(ServiceException.class);
 
