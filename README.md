@@ -51,10 +51,9 @@ el JDK17. Y así es más sencillo. Simplemente después de hacer el install,
 creas una confguración.
 ![runApp.png](documentation%2Fimages%2FrunApp.png)
 
-Una vez arranca la aplicación puedes probarla con Postman. O acceder a la url:
-http://localhost:8080/swagger-ui/index.html y probarla.  
-También se ha añadido la colección de postman con dos peticiones, una para probar correctamente la petición
-y otra para comprobar que se lanzaba correctamente la excepción. [SHOP_COLLECTION.postman_collection.json](documentation%2Fpostman-collections%2FSHOP_COLLECTION.postman_collection.json)
+Una vez arranca la aplicación puedes probarla con Postman,  se ha añadido la colección de postman con dos peticiones. Una para probar correctamente la petición
+y otra para comprobar que se lanzaba correctamente la excepción. [SHOP_COLLECTION.postman_collection.json](documentation%2Fpostman-collections%2FSHOP_COLLECTION.postman_collection.json).
+O acceder a la url: http://localhost:8080/swagger-ui/index.html y probarla con Swagger.
 
 ### Notas
 Respecto al diseño, se podría haber hecho de otras formas. Pero teniendo en cuenta que eran sencillo
