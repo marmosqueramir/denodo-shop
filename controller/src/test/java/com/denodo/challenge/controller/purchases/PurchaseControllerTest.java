@@ -1,11 +1,11 @@
 package com.denodo.challenge.controller.purchases;
 
-import com.denodo.challenge.controller.utils.PurchasesMocks;
 import com.denodo.challenge.dto.PurchasesForMostRepeatedAgeByDateDTO;
 import com.denodo.challenge.service.purchases.interfaces.PurchaseService;
 import com.denodo.challenge.util.exceptions.ServiceException;
 import com.denodo.challenge.util.tests.JsonParserToObject;
 import com.google.gson.reflect.TypeToken;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -33,12 +33,18 @@ public class PurchaseControllerTest {
     @Mock
     private PurchaseService purchaseService;
 
+    private static LocalDateTime initDateTime;
+    private static LocalDateTime endDateTime;
+
+    @BeforeAll
+    public static void setUp() {
+        // Configuración de datos de prueba
+        initDateTime = LocalDateTime.now();
+        endDateTime = LocalDateTime.now().plusHours(1);
+    }
+
     @Test
     public void testTotalPurchasesForMostRepeatedAgeByDate_Ok() throws ServiceException {
-        // Configuración de datos de prueba
-        LocalDateTime initDateTime = LocalDateTime.now();
-        LocalDateTime endDateTime = LocalDateTime.now().plusHours(1);
-
         // Configuración del servicio mock
         Type listType = new TypeToken<List<PurchasesForMostRepeatedAgeByDateDTO>>() {}.getType();
         String json = getPurchasesForMostRepeatedAgeByDateDTOListJson();
@@ -55,10 +61,6 @@ public class PurchaseControllerTest {
 
     @Test
     public void testTotalPurchasesForMostRepeatedAgeByDate_NullData() throws ServiceException {
-        // Configuración de datos de prueba
-        LocalDateTime initDateTime = LocalDateTime.now();
-        LocalDateTime endDateTime = LocalDateTime.now().plusHours(1);
-
         when(purchaseService
                 .totalPurchasesForMostRepeatedAgeByDate(initDateTime, null)).thenThrow(IllegalArgumentException.class);
         when(purchaseService
@@ -82,10 +84,6 @@ public class PurchaseControllerTest {
 
     @Test
     public void testTotalPurchasesForMostRepeatedAgeByDate_ServiceException() throws ServiceException {
-        // Configuración de datos de prueba
-        LocalDateTime initDateTime = LocalDateTime.now();
-        LocalDateTime endDateTime = LocalDateTime.now().plusHours(1);
-
         when(purchaseService
                 .totalPurchasesForMostRepeatedAgeByDate(initDateTime, endDateTime)).thenThrow(ServiceException.class);
 
