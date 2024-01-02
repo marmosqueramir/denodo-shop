@@ -29,7 +29,6 @@ public class PurchaseControllerTest {
 
     @InjectMocks
     private PurchaseController purchaseController;
-
     @Mock
     private PurchaseService purchaseService;
 

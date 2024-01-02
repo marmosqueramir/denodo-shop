@@ -3,9 +3,7 @@ package com.denodo.challenge.dto;
 public class PurchasesForMostRepeatedAgeByDateDTO {
 
     private Long userId;
-
     private Long totalAmount;
-
     private Integer age;
     private Long numberOfAgeRepeats;
 
