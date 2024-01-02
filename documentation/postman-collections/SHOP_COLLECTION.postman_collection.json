@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "6ef9526e-b3f2-4412-9a8b-53d1eb8371ad",
+		"name": "SHOP_COLLECTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6162312"
+	},
+	"item": [
+		{
+			"name": "Get operation",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/purchases/totalPurchasesForMostRepeatedAgeByDate?initDateTime=2023-11-20-20:40&endDateTime=2023-11-23-23:40",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchases",
+						"totalPurchasesForMostRepeatedAgeByDate"
+					],
+					"query": [
+						{
+							"key": "initDateTime",
+							"value": "2023-11-20-20:40"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-11-23-23:40"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get operation Exception",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/purchases/totalPurchasesForMostRepeatedAgeByDate?initDateTime=2023-11-25-20:40&endDateTime=2023-11-23-23:40",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"purchases",
+						"totalPurchasesForMostRepeatedAgeByDate"
+					],
+					"query": [
+						{
+							"key": "initDateTime",
+							"value": "2023-11-25-20:40"
+						},
+						{
+							"key": "endDateTime",
+							"value": "2023-11-23-23:40"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
