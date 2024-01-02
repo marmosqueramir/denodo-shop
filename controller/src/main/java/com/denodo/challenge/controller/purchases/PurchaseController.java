@@ -27,7 +27,7 @@ import java.util.List;
 @RequestMapping("/purchases")
 public class PurchaseController {
 
-    private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm";
+    private static final String DATE_FORMAT = "yyyy-MM-dd-HH:mm";
     private PurchaseService purchaseService;
 
     @Autowired

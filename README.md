@@ -28,7 +28,7 @@ a pgAdmin4. En nuestro navegador accedemos a ```localhost:5050/browser/``` y nos
 
 Ahora vamos a crear el servidor siguiendo los pasos de las siguientes imágenes.
 ![paso1.png](documentation%2Fimages%2Fpaso1.png)
-![paso2.png](documentation%2Fimages%2Fpaso2.png
+![paso2.png](documentation%2Fimages%2Fpaso2.png)
 ![paso3.png](documentation%2Fimages%2Fpaso3.png)
 - password: postgres
 
