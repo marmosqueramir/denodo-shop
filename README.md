@@ -1,4 +1,4 @@
-# Documencatión
+# Documentación
 
 Se han cambiado las columnas fecha y hora, unificándolas. Esto es debido a que daban 
 problemas a la hora de hacer los filtrados por hora y fecha  a la vez. 
