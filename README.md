@@ -53,3 +53,8 @@ creas una confguración.
 
 Una vez arranca la aplicación puedes probarla con Postman. O acceder a la url:
 http://localhost:8080/swagger-ui/index.html y probarla.
+
+### Notas
+Respecto al diseño, se podría haber hecho de otras formas. Pero teniendo en cuenta que eran sencillo
+se ha optado por dividir en controller servicio y el modelo. Podríamos haber hecho un módulo
+para cada entidad por ejemplo. Para separar completamente una entidad de otra.
