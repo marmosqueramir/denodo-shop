@@ -58,4 +58,7 @@ O acceder a la url: http://localhost:8080/swagger-ui/index.html y probarla con S
 ### Notas
 Respecto al diseño, se podría haber hecho de otras formas. Pero teniendo en cuenta que eran sencillo
 se ha optado por dividir en controller servicio y el modelo. Podríamos haber hecho un módulo
-para cada entidad por ejemplo. Para separar completamente una entidad de otra.
+para cada entidad por ejemplo. Para separar completamente una entidad de otra.  
+Para desplegar en producción podríamos enmascarar las properties y sustituirlas en tiempo de despliegue. Con las GitHub actions
+ya podríamos guardar ahí las properties secretas.  
+También podríamos añadir seguridad utilizando JWTs para acceder a los endpoints.
