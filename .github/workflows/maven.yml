@@ -23,7 +23,7 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
 
-    - name: Build with Maven
+    - name: Clean and build with Maven
       id: packaging-jar
       shell: bash
       run: mvn clean install
